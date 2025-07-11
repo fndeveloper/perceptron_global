@@ -57,3 +57,17 @@ function initNavbarTabHover() {
   });
 }
 // ======================= NAVBAR TABS PANE CODE END ==============================
+
+
+  const toggleBtn = document.getElementById('toggleCollapseBtn');
+  const collapseElement = document.getElementById('moreCards');
+
+  // When collapse opens
+  collapseElement.addEventListener('shown.bs.collapse', function () {
+    toggleBtn.innerText = 'Show Less Solutions';
+  });
+
+  // When collapse hides
+  collapseElement.addEventListener('hidden.bs.collapse', function () {
+    toggleBtn.innerText = 'Show More Solutions';
+  });
