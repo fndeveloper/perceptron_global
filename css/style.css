@@ -16,7 +16,9 @@ body {
 
     font-weight: 500;
 }
-
+.col_light{
+    color: rgb(121, 121, 121) !important;
+}
 .bg {
     background-color: var(--bg) !important;
 }
