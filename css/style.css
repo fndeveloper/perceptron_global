@@ -86,7 +86,7 @@ body {
     color: var(--bg) !important;
 }
 .fs_6{
-    font-size: 14px;
+    font-size: 15px;
     text-align: justify !important;
 }
 .scroll_top_btn {
@@ -180,4 +180,7 @@ body {
     border-radius: 20px;
     backdrop-filter: blur(3px);
     border: 1px solid rgb(184, 184, 184);
+}
+.text_justify{
+    text-align: justify !important;
 }
