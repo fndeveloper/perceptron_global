@@ -71,7 +71,7 @@ body {
     width: max-content !important;
 }
 .slider_image_home div img {
-    width: 97vw !important;
+    width: 98% !important;
     border-radius: 20px;
     z-index: -1 !important;
     margin: 0% auto !important;
@@ -180,7 +180,7 @@ body {
     font-size: 32px !important;
 }
 .slider_image_home div img {
-    width: 95vw !important;
+    width: 98% !important;  
 }
 }
 .btn_image{
