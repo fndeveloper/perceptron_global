@@ -2,8 +2,6 @@
 document.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
 
-console.log(scrollTop);
-
   const navbar = document.getElementById("navbar");
   const topBtn = document.querySelector(".top_btn_1");
 
@@ -11,13 +9,13 @@ console.log(scrollTop);
 
     if (navbar) {
       navbar.classList.add("navfix");
-      console.log("e");
+
       
     }
   } else {
     
     if (navbar) {
-      console.log("if");
+     
 
       navbar.classList.remove("navfix");
     }
@@ -28,7 +26,7 @@ console.log(scrollTop);
 
 // ===================== HEADER CODE START ======================
 document.addEventListener("DOMContentLoaded", () => {
-  // Trigger fade-in animation
+
   document.body.classList.add("fade-in");
 });
 
@@ -40,9 +38,23 @@ if (header) {
     .then((data) => {
       header.innerHTML = data;
 
-      initNavbarTabHover?.(); // run navbar init if defined
+      // ============= CODE FOR CHECK COLLPASE OF SHEDULE APPOINTMENT START ===============
+setTimeout(() => {
+const el = document.querySelector(".shedule_collapse");
+if (el && el.offsetHeight > 0) {
+  console.log("Collapse is OPEN (visible)");
+} else {
+  console.log("Collapse is CLOSED (hidden)");
+}
 
-      // Add fade-out transition for internal links
+}, 500);
+// ============= CODE FOR CHECK COLLPASE OF SHEDULE APPOINTMENT END ===============
+
+
+
+      initNavbarTabHover?.(); 
+
+
       document.querySelectorAll('a[href]').forEach(link => {
         const href = link.getAttribute('href');
 
@@ -50,12 +62,12 @@ if (header) {
           link.addEventListener('click', function (e) {
             e.preventDefault();
 
-            document.body.classList.remove("fade-in"); // start fade out
+            document.body.classList.remove("fade-in"); 
             document.body.style.opacity = 0;
 
             setTimeout(() => {
               window.location.href = href;
-            }, 600); // match with CSS duration
+            }, 600); 
           });
         }
       });
@@ -94,18 +106,6 @@ function initNavbarTabHover() {
 // ======================= NAVBAR TABS PANE CODE END ==============================
 
 
-  const toggleBtn = document.getElementById('toggleCollapseBtn');
-  const collapseElement = document.getElementById('moreCards');
-
-  // When collapse opens
-  collapseElement.addEventListener('shown.bs.collapse', function () {
-    toggleBtn.innerText = 'Show Less Solutions';
-  });
-
-  // When collapse hides
-  collapseElement.addEventListener('hidden.bs.collapse', function () {
-    toggleBtn.innerText = 'Show More Solutions';
-  });
 
 
-  // ==============================================
+ 

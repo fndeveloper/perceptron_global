@@ -313,3 +313,23 @@ animation: slideInUp; /* referring directly to the animation's @keyframe declara
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px !important;
 
 }
+
+.animtation_image_of_blub{
+    animation: 3.3s linear infinite  animtation_image_of_blub_keyframe;
+}
+@keyframes animtation_image_of_blub_keyframe {
+    0%,100%{
+        padding: 1px;
+        background-color: var(--bg);
+        transform: scale(0.95);
+    }
+    50%{
+        padding: 1px;
+ background-color: var(--bg);
+transform: scale(1);
+    }
+}
+
+.img_of_bg{
+    z-index: 1 !important;
+}
