@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap');
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 :root {
     --font_family_poppins: "Poppins", sans-serif;
     --font-family_Quicksand: "Quicksand", sans-serif;
@@ -16,6 +16,19 @@ body {
 
     font-weight: 500;
 }
+/* ========== FOR PAGE TRANSITION CODE START =========== */
+/* Initial hidden state */
+body {
+opacity: 0;
+  transition: opacity 0.6s ease-in-out !important;
+}
+
+/* Show page content */
+body.fade-in {
+  opacity: 1;
+}
+
+/* ========== FOR PAGE TRANSIRTION CODE END ================*/
 .col_light{
     color: rgb(121, 121, 121) !important;
 }
@@ -272,7 +285,7 @@ background-position: center !important;
     padding:5px 15px;
     border: none ;
     text-decoration: none;
-    /* background-color:var(--bg); */
+
     position: fixed;
     width: 30%;
     bottom: 10px !important;
@@ -287,5 +300,16 @@ background-position: center !important;
  }   
 }
 .shedule_collapse{
+
+    transition: 0.6s ease-in-out !important;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+background-color: var(--bg) !important;
+margin:3% auto !important;
+animation: slideInUp; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1.6s; /* don't forget to set a duration! */
+}
+.shadow_lg{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px !important;
+
 }

@@ -27,16 +27,41 @@ console.log(scrollTop);
 // ===================================================
 
 // ===================== HEADER CODE START ======================
-var header=document.getElementById("header");
-if(header){
-// ===================== HEADER CODE START ======================
+document.addEventListener("DOMContentLoaded", () => {
+  // Trigger fade-in animation
+  document.body.classList.add("fade-in");
+});
+
+var header = document.getElementById("header");
+
+if (header) {
   fetch("../header.html")
-  .then(e=>e.text())
-  .then((data)=>{
-  header.innerHTML=data;
-  initNavbarTabHover();
-})
+    .then((e) => e.text())
+    .then((data) => {
+      header.innerHTML = data;
+
+      initNavbarTabHover?.(); // run navbar init if defined
+
+      // Add fade-out transition for internal links
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !link.hasAttribute('target')) {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.body.classList.remove("fade-in"); // start fade out
+            document.body.style.opacity = 0;
+
+            setTimeout(() => {
+              window.location.href = href;
+            }, 600); // match with CSS duration
+          });
+        }
+      });
+    });
 }
+
 // ===================== HEADER CODE END ======================
 
 // ===================== HEADER CODE START ======================
@@ -81,3 +106,6 @@ function initNavbarTabHover() {
   collapseElement.addEventListener('hidden.bs.collapse', function () {
     toggleBtn.innerText = 'Show More Solutions';
   });
+
+
+  // ==============================================
