@@ -121,6 +121,8 @@ body.fade-in {
     transition: 0.5s ease;
 }
 
+
+
 .bg_light {
     background-color: var(--bg_light) !important;
 }
@@ -130,7 +132,11 @@ body.fade-in {
 
     background-color: var(--bg) !important;
 }
+.container_of_clients{
+    z-index: 11 ;
+    bottom: -40px !important;
 
+}
 .hover-tab-nav .nav-link {
     font-weight: 600;
     font-size: 15px;
