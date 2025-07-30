@@ -2,79 +2,567 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bootstrap Hover Tabs</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hard Quantitative MCQs - Admission Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+    }
+    .question-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: auto;
+    }
+    .question {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #e0e0e0;
+      cursor: pointer;
+      text-align: left;
+      font-size: 16px;
+    }
+    .options button:hover {
+      background: #d0d0d0;
+    }
+    .result {
+      font-size: 22px;
+      text-align: center;
+      margin-top: 30px;
+      font-weight: bold;
+    }
+    .feedback {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-
-<div class="container py-5">
-  <div class="d-flex align-items-start">
-    <div class="nav flex-column nav-pills me-3 hover-tab-nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" data-bs-target="#v-pills-AI-product" >AI-product</a>
-      <a class="nav-link" data-bs-target="#v-pills-GRCService" >GRC Service</a>
-      <a class="nav-link" data-bs-target="#v-pills-webdev" >webdev</a>
-      <a class="nav-link" data-bs-target="#v-pills-pmp" >pmp</a>
+  <div class="question-container">
+    <div id="question-box">
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
     </div>
-
-    <div class="tab-content hover-tab-pane" id="v-pills-tabContent">
-      <div class="tab-pane fade show active p-3 border rounded" id="v-pills-AI-product">
-        <div class="d-flex">
-              <div class="col-3">
-                                      <li><a class="dropdown-item" href="https://www.perceptronglobal.com/port-container-solutions.asp">AI Port Container Solution</a></li>
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/media-solutions.asp">AI Media Solutions</a></li>
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/customer-services-solutions.asp">AI Customer Services Solutions</a></li>
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/manufacturing-solutions.asp">AI Manufacturing Solution</a></li>
-                                                  
-                                </div>
-                                <div class="col-3">
-                                      <li><a class="dropdown-item" href="https://www.perceptronglobal.com/retail-solutions.asp">AI Retail Solutions</a></li>
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/mall-solutions.asp">AI Mall Solutions</a></li>
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/safety-security-solutions.asp">AI Safety &amp; Security Solutions</a></li>
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/ai-based-geographical-information-solutions.asp">AI Geo Spatial Solutions</a></li>
-                                                 
-                                </div>
-                                <div class="col-3">
-                                      <li><a class="dropdown-item" href="https://www.perceptronglobal.com/health-care-ai-solutions.asp">AI Health Care Solutions</a></li>
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/data-science-solutions.asp">AI Predictive Analysis Solutions</a></li>                                                  
-    							  				    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/face-recognition-solutions-ai.asp">Facial Recognition Solutions</a></li>
-	                                                <li><a class="dropdown-item" href="https://www.perceptronglobal.com/Vehicle-recognition-solutions-ai.asp">AI Vehicle Recognition Solutions </a></li>                                                    
-	                                               
-                                </div>
-
-                                <div class="col-3">
-   <li><a class="dropdown-item" href="https://www.perceptronglobal.com/intelligent-OCR-solutions-ai.asp">AI Intelligent OCR</a></li>
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/speech-to-text-talkatron.asp">AI Speech to Text Solutions </a></li>                                                    
-                                                    <li><a class="dropdown-item" href="https://www.perceptronglobal.com/traffic-management-solutions-ai.asp">AI Traffic Management Solutions </a></li>                                                    
-
-                                </div>
-        </div>
-      </div>
-      <div class="tab-pane fade p-3 border rounded" id="v-pills-GRCService">👤 GRC Service content</div>
-      <div class="tab-pane fade p-3 border rounded" id="v-pills-webdev">💬 webdev content</div>
-      <div class="tab-pane fade p-3 border rounded" id="v-pills-pmp">⚙️ pmp content</div>
-    </div>
+    <div class="result" id="result"></div>
   </div>
-</div>
 
-<script>
-  const tabs = document.querySelectorAll('.hover-tab-nav .nav-link');
-  const panes = document.querySelectorAll('.hover-tab-pane .tab-pane');
+  <script>
+    const quiz = [
+  {
+    question: "Select the correct synonym of 'Abundant':",
+    options: ["Scarce", "Plentiful", "Insufficient", "Rare"],
+    answer: "Plentiful"
+  },
+  {
+    question: "Choose the antonym of 'Reluctant':",
+    options: ["Unwilling", "Eager", "Hesitant", "Indifferent"],
+    answer: "Eager"
+  },
+  {
+    question: "Identify the error: He is senior than me.",
+    options: ["He is", "senior", "than", "me"],
+    answer: "than"
+  },
+  {
+    question: "Find the correct passive form: 'They completed the project.'",
+    options: [
+      "The project is completed by them.",
+      "The project was completed by them.",
+      "The project had been completed by them.",
+      "The project will be completed by them."
+    ],
+    answer: "The project was completed by them."
+  },
+  {
+    question: "Choose the correct spelling:",
+    options: ["Definately", "Definetely", "Definitely", "Definitaly"],
+    answer: "Definitely"
+  },
+  {
+    question: "What is the meaning of the idiom: 'Break the ice'?",
+    options: [
+      "To start a fight",
+      "To begin a conversation",
+      "To fall on ice",
+      "To break something"
+    ],
+    answer: "To begin a conversation"
+  },
+  {
+    question: "Choose the correct form: Neither Ali nor his friends ___ coming.",
+    options: ["is", "are", "was", "be"],
+    answer: "are"
+  },
+  {
+    question: "Fill in the blank: She prefers tea ___ coffee.",
+    options: ["than", "from", "over", "to"],
+    answer: "to"
+  },
+  {
+    question: "Choose the correct option: I would rather you ___ now.",
+    options: ["leave", "left", "leaving", "had left"],
+    answer: "left"
+  },
+  {
+    question: "Which sentence is correct?",
+    options: [
+      "He has went to school.",
+      "He have gone to school.",
+      "He has gone to school.",
+      "He gone to school."
+    ],
+    answer: "He has gone to school."
+  },
+  {
+    question: "Which word is the noun?",
+    options: ["Quick", "Jump", "Happiness", "Softly"],
+    answer: "Happiness"
+  },
+  {
+    question: "Which is a preposition?",
+    options: ["Run", "Under", "Fast", "See"],
+    answer: "Under"
+  },
+  {
+    question: "Choose the correct indirect speech: He said, 'I am sick.'",
+    options: [
+      "He said that he is sick.",
+      "He said that I am sick.",
+      "He said that he was sick.",
+      "He told he was sick."
+    ],
+    answer: "He said that he was sick."
+  },
+  {
+    question: "Fill in the blank: If I ___ you, I would study harder.",
+    options: ["am", "was", "were", "be"],
+    answer: "were"
+  },
+  {
+    question: "Which sentence is in present perfect tense?",
+    options: [
+      "He writes a letter.",
+      "He is writing a letter.",
+      "He has written a letter.",
+      "He wrote a letter."
+    ],
+    answer: "He has written a letter."
+  },
+  {
+    question: "What does 'in a nutshell' mean?",
+    options: [
+      "In a small shell",
+      "In brief",
+      "In a detailed way",
+      "In a hurry"
+    ],
+    answer: "In brief"
+  },
+  {
+    question: "Which of the following is a conjunction?",
+    options: ["Because", "Running", "Quick", "Often"],
+    answer: "Because"
+  },
+  {
+    question: "Fill in the blank: I am looking forward ___ your reply.",
+    options: ["to", "for", "from", "at"],
+    answer: "to"
+  },
+  {
+    question: "Which sentence is grammatically correct?",
+    options: [
+      "She don’t like apples.",
+      "She doesn’t likes apples.",
+      "She doesn’t like apples.",
+      "She not like apples."
+    ],
+    answer: "She doesn’t like apples."
+  },
+  {
+    question: "Choose the correct article: ___ university was built in 1950.",
+    options: ["A", "An", "The", "None"],
+    answer: "The"
+  },
+  {
+    question: "What type of sentence is: 'What a beautiful day!'?",
+    options: ["Interrogative", "Declarative", "Exclamatory", "Imperative"],
+    answer: "Exclamatory"
+  },
+  {
+    question: "Identify the part of speech: 'Gently'",
+    options: ["Noun", "Adjective", "Adverb", "Verb"],
+    answer: "Adverb"
+  },
+  {
+    question: "Fill in the blank: I have been living here ___ five years.",
+    options: ["since", "at", "for", "from"],
+    answer: "for"
+  },
+  {
+    question: "Which one is a compound sentence?",
+    options: [
+      "She likes tea.",
+      "He ran fast and won the race.",
+      "Because it rained, we stayed home.",
+      "Although she tried, she failed."
+    ],
+    answer: "He ran fast and won the race."
+  },
+  {
+    question: "Choose the correct transformation to passive: 'She sings a song.'",
+    options: [
+      "A song is sung by her.",
+      "A song was sung by her.",
+      "A song has been sung by her.",
+      "A song is singing by her."
+    ],
+    answer: "A song is sung by her."
+  },
 
-  tabs.forEach(tab => {
-    tab.addEventListener('mouseenter', function () {
-      // Remove all active/show classes
-      tabs.forEach(t => t.classList.remove('active'));
-      panes.forEach(pane => pane.classList.remove('show', 'active'));
+  {
+    question: "Q26: Choose the correct spelling.",
+    options: ["Accomodate", "Acommodate", "Accommodate", "Acomodete"],
+    answer: "Accommodate"
+  },
+  {
+    question: "Q27: What is the synonym of 'abundant'?",
+    options: ["Scarce", "Limited", "Plentiful", "Lacking"],
+    answer: "Plentiful"
+  },
+  {
+    question: "Q28: Choose the antonym of 'optimistic'.",
+    options: ["Hopeful", "Pessimistic", "Cheerful", "Joyful"],
+    answer: "Pessimistic"
+  },
+  {
+    question: "Q29: Identify the part of speech: 'She sang beautifully.'",
+    options: ["Noun", "Adjective", "Adverb", "Verb"],
+    answer: "Adverb"
+  },
+  {
+    question: "Q30: Which sentence is grammatically correct?",
+    options: [
+      "She don't like coffee.",
+      "He go to school everyday.",
+      "They are playing outside.",
+      "I has a pen."
+    ],
+    answer: "They are playing outside."
+  },
+  {
+    question: "Q31: Choose the correct passive form: 'They made a cake.'",
+    options: [
+      "A cake made by them.",
+      "A cake is made by them.",
+      "A cake was made by them.",
+      "A cake were made by them."
+    ],
+    answer: "A cake was made by them."
+  },
+  {
+    question: "Q32: Fill in the blank: 'He is good ___ math.'",
+    options: ["on", "at", "with", "in"],
+    answer: "at"
+  },
+  {
+    question: "Q33: Choose the correct article: '___ honest man.'",
+    options: ["A", "An", "The", "None"],
+    answer: "An"
+  },
+  {
+    question: "Q34: What is the antonym of 'frequent'?",
+    options: ["Often", "Rare", "Usual", "Regular"],
+    answer: "Rare"
+  },
+  {
+    question: "Q35: What does 'bilingual' mean?",
+    options: [
+      "Able to read",
+      "Able to write two books",
+      "Able to speak two languages",
+      "Able to learn fast"
+    ],
+    answer: "Able to speak two languages"
+  },
+  {
+    question: "Q36: Fill in the blank: 'He has been working here ___ 2019.'",
+    options: ["since", "for", "at", "by"],
+    answer: "since"
+  },
+  {
+    question: "Q37: Choose the synonym of 'ancient'.",
+    options: ["Modern", "New", "Old", "Fast"],
+    answer: "Old"
+  },
+  {
+    question: "Q38: Identify the correct indirect speech: He said, 'I am tired.'",
+    options: [
+      "He said he was tired.",
+      "He said he is tired.",
+      "He says he was tired.",
+      "He said that I was tired."
+    ],
+    answer: "He said he was tired."
+  },
+  {
+    question: "Q39: Choose the correct preposition: 'She was angry ___ him.'",
+    options: ["at", "on", "with", "to"],
+    answer: "with"
+  },
+  {
+    question: "Q40: Which word is a conjunction?",
+    options: ["Quickly", "However", "Large", "Smile"],
+    answer: "However"
+  },
+  {
+    question: "Q41: Choose the correct sentence.",
+    options: [
+      "She going to market.",
+      "She is go to market.",
+      "She is going to market.",
+      "She gone to market."
+    ],
+    answer: "She is going to market."
+  },
+  {
+    question: "Q42: Choose the correct form: 'He ___ TV now.'",
+    options: ["watch", "watches", "is watching", "watched"],
+    answer: "is watching"
+  },
+  {
+    question: "Q43: What is the opposite of 'victory'?",
+    options: ["Success", "Win", "Defeat", "Goal"],
+    answer: "Defeat"
+  },
+  {
+    question: "Q44: Identify the type of sentence: 'Please open the window.'",
+    options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"],
+    answer: "Imperative"
+  },
+  {
+    question: "Q45: What does 'reluctant' mean?",
+    options: ["Unwilling", "Willing", "Quick", "Certain"],
+    answer: "Unwilling"
+  },
+  {
+    question: "Q46: Choose the correct verb form: 'They ___ gone already.'",
+    options: ["has", "had", "have", "having"],
+    answer: "have"
+  },
+  {
+    question: "Q47: Choose the correct spelling.",
+    options: ["Definately", "Definitely", "Definatly", "Definetely"],
+    answer: "Definitely"
+  },
+  {
+    question: "Q48: Fill in the blank: 'We met ___ the train station.'",
+    options: ["in", "at", "on", "to"],
+    answer: "at"
+  },
+  {
+    question: "Q49: What is the plural of 'crisis'?",
+    options: ["Crises", "Crisis", "Crisises", "Crisess"],
+    answer: "Crises"
+  },
+  {
+    question: "Q50: Choose the correct sentence.",
+    options: [
+      "He have a car.",
+      "He has a car.",
+      "He having a car.",
+      "He is has a car."
+    ],
+    answer: "He has a car."
+  }
+  ,
+   {
+    question: "1. What is the SI unit of force?",
+    options: ["Newton", "Pascal", "Joule", "Watt"],
+    answer: "Newton"
+  },
+  {
+    question: "2. What is the acceleration due to gravity on Earth?",
+    options: ["8.9 m/s²", "10 m/s²", "9.8 m/s²", "9.2 m/s²"],
+    answer: "9.8 m/s²"
+  },
+  {
+    question: "3. Which law states that F = ma?",
+    options: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Law of Inertia"],
+    answer: "Newton's Second Law"
+  },
+  {
+    question: "4. The momentum of a body is the product of:",
+    options: ["Mass and velocity", "Mass and acceleration", "Force and time", "Energy and velocity"],
+    answer: "Mass and velocity"
+  },
+  {
+    question: "5. Which quantity is a vector?",
+    options: ["Speed", "Work", "Mass", "Displacement"],
+    answer: "Displacement"
+  },
+  {
+    question: "6. What is the work done when force is perpendicular to displacement?",
+    options: ["Positive", "Zero", "Negative", "Maximum"],
+    answer: "Zero"
+  },
+  {
+    question: "7. What is the unit of electric current?",
+    options: ["Volt", "Ohm", "Ampere", "Coulomb"],
+    answer: "Ampere"
+  },
+  {
+    question: "8. What type of lens is used in a magnifying glass?",
+    options: ["Concave", "Convex", "Planar", "Biconcave"],
+    answer: "Convex"
+  },
+  {
+    question: "9. What is Ohm’s Law?",
+    options: ["V = IR", "V = I/R", "V = R/I", "I = VR"],
+    answer: "V = IR"
+  },
+  {
+    question: "10. Energy stored in a stretched spring is:",
+    options: ["Kinetic", "Potential", "Elastic potential", "Chemical"],
+    answer: "Elastic potential"
+  },
+  {
+    question: "11. The frequency of a wave is measured in:",
+    options: ["Hertz", "Joule", "Ohm", "Newton"],
+    answer: "Hertz"
+  },
+  {
+    question: "12. The speed of light in vacuum is:",
+    options: ["3 × 10⁸ m/s", "2 × 10⁸ m/s", "3 × 10⁶ m/s", "5 × 10⁸ m/s"],
+    answer: "3 × 10⁸ m/s"
+  },
+  {
+    question: "13. Which of these is a scalar quantity?",
+    options: ["Velocity", "Force", "Power", "Acceleration"],
+    answer: "Power"
+  },
+  {
+    question: "14. If net force is zero, the object is:",
+    options: ["Accelerating", "At rest or moving at constant speed", "Turning", "Increasing in mass"],
+    answer: "At rest or moving at constant speed"
+  },
+  {
+    question: "15. Which particle has no charge?",
+    options: ["Proton", "Electron", "Neutron", "Ion"],
+    answer: "Neutron"
+  },
+  {
+    question: "16. Unit of pressure is:",
+    options: ["Joule", "Pascal", "Newton", "Watt"],
+    answer: "Pascal"
+  },
+  {
+    question: "17. When a body moves in a circle, it has:",
+    options: ["No acceleration", "Centripetal acceleration", "Negative velocity", "Uniform energy"],
+    answer: "Centripetal acceleration"
+  },
+  {
+    question: "18. Which electromagnetic wave has the highest frequency?",
+    options: ["Radio waves", "Infrared", "Gamma rays", "Ultraviolet"],
+    answer: "Gamma rays"
+  },
+  {
+    question: "19. What happens to resistance when temperature increases (in metals)?",
+    options: ["Decreases", "Increases", "Remains same", "Becomes zero"],
+    answer: "Increases"
+  },
+  {
+    question: "20. Inertia is the tendency of a body to:",
+    options: ["Accelerate", "Resist motion", "Change direction", "Lose energy"],
+    answer: "Resist motion"
+  },
+  {
+    question: "21. A transformer works on which principle?",
+    options: ["Ohm’s Law", "Electromagnetic induction", "Magnetism", "Fleming’s rule"],
+    answer: "Electromagnetic induction"
+  },
+  {
+    question: "22. The kinetic energy of a moving object depends on:",
+    options: ["Mass and speed", "Speed only", "Acceleration", "Mass and time"],
+    answer: "Mass and speed"
+  },
+  {
+    question: "23. Which law explains the reflection of light?",
+    options: ["Snell's Law", "Hooke’s Law", "Laws of Reflection", "Newton’s Laws"],
+    answer: "Laws of Reflection"
+  },
+  {
+    question: "24. Unit of power is:",
+    options: ["Watt", "Joule", "Ampere", "Coulomb"],
+    answer: "Watt"
+  },
+  {
+    question: "25. What does a voltmeter measure?",
+    options: ["Resistance", "Current", "Voltage", "Power"],
+    answer: "Voltage"
+  }
+];
+    let currentQuestion = 0;
+    let score = 0;
+    let feedbackData = [];
 
-      // Add active to current tab and matching pane
-      const target = this.getAttribute('data-bs-target');
-      this.classList.add('active');
-      document.querySelector(target).classList.add('show', 'active');
-    });
-  });
-</script>
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const resultEl = document.getElementById("result");
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    function loadQuestion() {
+      if (currentQuestion < quiz.length) {
+        questionEl.textContent = `Q${currentQuestion + 1}: ` + quiz[currentQuestion].question;
+        optionsEl.innerHTML = "";
+        quiz[currentQuestion].options.forEach((opt, i) => {
+          const btn = document.createElement("button");
+          btn.textContent = opt;
+          btn.onclick = () => checkAnswer(i);
+          optionsEl.appendChild(btn);
+        });
+      } else {
+        showResult();
+      }
+    }
+
+    function checkAnswer(selected) {
+      const correctIndex = quiz[currentQuestion].answer;
+      if (selected === correctIndex) score++;
+      feedbackData.push({
+        question: quiz[currentQuestion].question,
+        selected: quiz[currentQuestion].options[selected],
+        correct: quiz[currentQuestion].options[correctIndex],
+        wasCorrect: selected === correctIndex
+      });
+      currentQuestion++;
+      loadQuestion();
+    }
+
+    function showResult() {
+      document.getElementById("question-box").style.display = "none";
+      let html = `<div>You scored ${score} out of ${quiz.length}</div><br><div class="feedback">`;
+      feedbackData.forEach((f, i) => {
+        html += `<strong>Q${i + 1}:</strong> ${f.question}<br>` +
+                `Your Answer: ${f.selected} <br>` +
+                `Correct Answer: ${f.correct}<br><br>`;
+      });
+      html += `</div>`;
+      resultEl.innerHTML = html;
+    }
+
+    loadQuestion();
+  </script>
 </body>
 </html>

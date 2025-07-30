@@ -276,54 +276,49 @@
 
 
 
-    <!-- ================= SHEDULE MEETING PAGE START ===================== -->
+<!-- Schedule Meeting Button -->
 <div class="div_of_stick">
-         <p class="d-inline-flex gap-1  ">
-<div class="collapse shedule_collapse col-12   " id="book_collapseExample">
-  <div class="card card-body shadow-lg">
-  <div class="">
-  <main>
-    <div class="bg-white plg-2  rounded-3">
-      <!-- Title -->
-      <div class="mb-4">
-        <h5 class="h5 fw-bold ">Schedule Your Appointment</h5>
-       <div class="d-flex">
-         <p class="text-muted mb-0">We are here to help you 24/7 <br> with experts</p>
-         <img src="assets/images/image/ai_face_image.png" class="img-fluid col-2 ms-auto" alt="">
-       </div>
-      </div>
-
-      <!-- Form -->
-      <form class="needs-validation">
-        <div class="mb-3">
-          <input type="text" class="form-control" name="name" placeholder="Name" required>
-        </div>
-        <div class="mb-3">
-          <input type="email" class="form-control" name="email" placeholder="E-Mail" required>
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" name="phone" placeholder="Phone Number" required>
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" name="website" placeholder="Your Website" required>
-        </div>
-        <div class="d-grid">
-          <button type="submit" class="btn bg_light shadow_lg  fw-normal mb-3 col-6 p-1 mx-auto">Submit Now</button>
-        </div>
-      </form>
-    </div>
-  </main>
-</div>
-
-  </div>
-</div>  
-<div class="col-12 d-flex flex-row justify-content-end align-items-center">
-    
-  <button class="btn border-1 border-dark bg  text-white  shadow-lg text-decoration-none border-0 shadow_lg btn_of_appointment" type="button" data-bs-toggle="collapse" data-bs-target="#book_collapseExample" aria-expanded="false" aria-controls="book_collapseExample">
-Schedule Appointment
+  <button class="btn border-1  bg text-white shadow-lg text-decoration-none border-0 shadow_lg btn_of_appointment"
+          data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Schedule Appointment
   </button>
 </div>
-</p>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content card card-body shadow-lg">
+      <main>
+        <div class="bg-white p-3 rounded-3">
+          <!-- Title -->
+          <div class="mb-4">
+            <h5 class="h5 fw-bold">Schedule Your Appointment</h5>
+            <div class="d-flex">
+              <p class="text-muted mb-0">We are here to help you 24/7 <br> with experts</p>
+              <img src="assets/images/image/ai_face_image.png" class="img-fluid col-2 ms-auto" alt="">
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="needs-validation">
+            <div class="mb-3">
+              <input type="text" class="form-control" name="name" placeholder="Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" name="email" placeholder="E-Mail" required>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" name="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" name="website" placeholder="Your Website" required>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn bg_light shadow_lg fw-normal mb-3 col-6 p-1 mx-auto">Submit Now</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
 </div>
-     <!-- =================== SEHDUCLE MEETING PAGRE END ===================== -->
