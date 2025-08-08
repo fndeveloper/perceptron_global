@@ -6,6 +6,7 @@
     --color-text: rgb(51, 51, 51);
     --bg_light: rgb(241, 241, 241);
     --bg: #c74141;
+    --product_color: #761114;
 }
 
 body {
@@ -35,6 +36,9 @@ body.fade-in {
 }
 .bg {
     background-color: var(--bg) !important;
+}
+.product_col {
+    color: var(--product_color) !important;
 }
 
 /* NAVBAR LARGE CSS START */
@@ -69,9 +73,12 @@ body.fade-in {
 .lg_navbar .dropdown-menu .dropdown-item {
     border: 0 !important;
 }
+.lg_navbar .nav-item{
+
+    margin: 0% 0.5%;
+}
  .nav-item .nav-link {
     transition: 0.5s ease-in-out;
-    margin: 0% 19%;
     color: var(--color-text) !important;
     width: 100% ;
 }
@@ -324,40 +331,54 @@ transform: scale(1);
     z-index: 1 !important;
 }
 .swiper_marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    position: relative;
-    background: white;
+  overflow: hidden;
+  width: 70%;
+  background: white;
+  position: relative;
+}
+
+@media (max-width:992px) {
+    .swiper_marquee {
+  overflow: hidden;
+  width: 100%;
+  background: white;
+  position: relative;
+}
 }
 
 .swiper-wrapper_marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll_logo 25s linear infinite;
+  display: flex;
+  animation: scroll_logo 5s linear infinite;
 }
 
 .swiper-slide_marquee {
-    display: inline-block;
-    margin: 0 40px;
+  flex: 0 0 auto;
+  margin: 0 40px;
 }
 
 .swiper-slide_marquee img {
-    height: 100px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    background-color: white;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  background-color: white;
 }
 
 .swiper-slide_marquee img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @keyframes scroll_logo {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.image_prodct_page_card{
+    height: 60vh !important;
+    object-fit: cover !important;
+border-radius: 20px;
 }
