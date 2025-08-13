@@ -382,3 +382,7 @@ transform: scale(1);
     object-fit: cover !important;
 border-radius: 20px;
 }
+
+.h_100vh{
+    height: 100vh !important;
+}
