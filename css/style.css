@@ -386,3 +386,47 @@ border-radius: 20px;
 .h_100vh{
     height: 100vh !important;
 }
+
+
+.div_of_card_serivce{
+    height: 400px !important;
+    width: 200px !important;
+    border-radius: 7px;
+    background-color: #c74141;
+transition: 0.9s ease-in-out !important;
+position: relative !important;
+}
+
+.img_of_hover{
+transition: 0.9s ease-in-out !important;
+    object-fit: cover;
+height: 100% !important;
+width: 100% !important;
+   opacity: 0;
+}
+.dark_bg_div_of_card_service{
+    height: 100% !important;
+    width: 100% !important;
+transition: 0.9s ease-in-out !important;
+
+    background-color: #0f0f0f71;
+    opacity: 0;
+}
+.div_of_card_serivce:hover .dark_bg_div_of_card_service{
+opacity: 1;
+}
+.div_of_card_serivce:hover .img_of_hover{
+   opacity: 1;
+} 
+.div_of_card_serivce:hover {
+   width: 300px !important;
+}  
+.div_of_card_serivce_text{
+    font-weight: 1000 !important;
+    opacity: 100 !important;
+    color: rgba(255, 255, 255, 0.452);
+}
+.div_of_card_serivce:hover .div_of_card_serivce_text{
+   opacity: 1;
+   color: white !important;
+} 
