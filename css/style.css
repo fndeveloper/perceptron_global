@@ -31,6 +31,11 @@ body.fade-in {
 }
 
 /* ========== FOR PAGE TRANSIRTION CODE END ================*/
+@media (min-width:992px) {
+    .carousel_content_div {
+    height: 100vh !important;
+}
+}
 .col_light{
     color: rgb(121, 121, 121) !important;
 }
@@ -93,15 +98,36 @@ body.fade-in {
 .slider_image_home div img {
     background-size: cover !important;
     width: 100% !important;
-
-    height: 80vh;
     margin: 0% !important;
     padding: 0% !important; 
+}
+
+@media (min-width:992px) {
+    .slider_image_home .carousel-item .d-block{
+    height: 80vh !important;
+}
+}
+@media (max-width:992px) {
+    .slider_image_home .carousel-item .d-block{
+    height: 110vh !important;
+}
 }
 .carousel_content_div {
     position: absolute;
     z-index: 21;
 }
+.image_1_of_stats{
+    object-fit: cover !important;
+    height: 400px !important;
+}
+
+.h_100vh{
+    height: 100vh !important;
+}
+.h_90vh{
+    height: 800px !important;
+}
+
 .border_radius{
         border-radius: 20px;
 }
@@ -111,6 +137,12 @@ body.fade-in {
 .fs_6{
     font-size: 15px;
     text-align: justify !important;
+}
+@media (min-width:992px) {
+    .stats_container .car{
+    border-radius: 8px !important;
+    height: 400px !important;
+}
 }
 .scroll_top_btn {
     position: fixed;
@@ -383,9 +415,7 @@ transform: scale(1);
 border-radius: 20px;
 }
 
-.h_100vh{
-    height: 100vh !important;
-}
+
 
 
 .div_of_card_serivce{
