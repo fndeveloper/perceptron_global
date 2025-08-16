@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
+    --font-family-numbber: 'Helvetica Neue', sans-serif;
     --font_family_poppins: "Poppins", sans-serif;
-    --font-family_Quicksand: "Quicksand", sans-serif;
+    --font-family_Quicksand:"Montserrat", sans-serif;;
     --color-text: rgb(51, 51, 51);
     --bg_light: rgb(241, 241, 241);
     --bg: #c74141;
@@ -29,7 +32,9 @@ opacity: 0;
 body.fade-in {
   opacity: 1;
 }
-
+.num_family{
+    font-family: var(--font-family-numbber) !important;
+}
 /* ========== FOR PAGE TRANSIRTION CODE END ================*/
 @media (min-width:992px) {
     .carousel_content_div {
