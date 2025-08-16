@@ -1,56 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Index — BarbaJS legacy example</title>
-    <style>
-        body{
-            background-color: red !important;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Subscription with Auto Reply</title>
+  <link rel="shortcut icon" href="assets/images/image/ai_face_image.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .success-msg {
+      margin-top: 15px;
+      font-size: 14px;
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Join Our Newsletter</h2>
+    <form id="subscribeForm" action="https://formsubmit.co/fasihnasir12@gmail.com" method="POST">
+      
+      <!-- User Email Input -->
+      <input type="email" name="email" placeholder="Enter your email" required>
+      
+      <!-- Hidden fields for autoresponder -->
+      <input type="hidden" name="_subject" value="🎉 Welcome to Our App!">
+      <input type="hidden" name="_autoresponse" value="Thanks for joining 🎉. We’re happy to have you with us! Stay tuned for updates.">
+      <input type="hidden" name="_template" value="table">
+
+      <!-- Optional: redirect to thank you page after submission -->
+      <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html"> -->
+
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="success-msg" id="successMsg">✅ Thanks for subscribing! Check your email.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById("subscribeForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // stop default refresh
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+      }).then((res) => {
+        if(res.ok){
+          successMsg.style.display = "block";
+          form.reset();
+        } else {
+          alert("❌ Something went wrong.");
         }
-    </style>
-  </head>
-  <body>
-
-    <!-- base styles to prevent container from moving during transition -->
-    <style media="screen">
-      [data-barba="container"] {
-        position: absolute;
-        font-family: monospace;
-      }
-    </style>
-
-    <!-- define the wrapper and the container -->
-    <div data-barba="wrapper">
-      <div data-barba="container" data-barba-namespace="home">
-        <h1>Home</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a href="practice2.html">About</a>
-      </div>
-    </div>
-
-    <!-- load barba (UMD version) -->
-    <script src="https://unpkg.com/@barba/core"></script>
-
-    <!-- load gsap animation library (minified version) -->
-    <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
-
-    <!-- init barba with a simple opacity transition -->
-    <script>
-      barba.init({
-        transitions: [{
-          name: 'opacity-transition',
-          leave(data) {
-            return gsap.to(data.current.container, {
-              opacity: 0
-            });
-          },
-          enter(data) {
-            return gsap.from(data.next.container, {
-              opacity: 0
-            });
-          }
-        }],
+      }).catch(() => {
+        alert("❌ Network error.");
       });
-    </script>
-  </body>
+    });
+  </script>
+
+</body>
 </html>

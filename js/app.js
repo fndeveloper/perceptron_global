@@ -129,3 +129,4 @@ function initNavbarTabHover() {
     }
   });
 // =================== SWIPER OF BANNER SLIDER CODE END  ======================
+
