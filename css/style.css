@@ -458,11 +458,13 @@ opacity: 1;
 }  
 .div_of_card_serivce_text{
     font-weight: 1000 !important;
+transition: 0.9s ease-in-out !important;
     opacity: 100 !important;
     color: rgba(255, 255, 255, 0.452);
 }
 .div_of_card_serivce:hover .div_of_card_serivce_text{
    opacity: 1;
+   transform: scale(1.1) !important;
    color: white !important;
 } 
 
