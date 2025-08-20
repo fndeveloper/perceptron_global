@@ -75,6 +75,36 @@ if (el && el.offsetHeight > 0) {
 }
 
 // ===================== HEADER CODE END ======================
+// ==================== ai_product_partial CODE START ==================================
+var ai_product_partial=document.getElementById("ai_product_partial");
+if(ai_product_partial){
+  fetch("../ai_product_partial.html")
+  .then((E)=>E.text())
+  .then(res=>{
+    ai_product_partial.innerHTML=res;
+  })
+}
+// ==================== ai_product_partial CODE END ================================
+
+
+
+
+
+
+
+// ====================== grc_service_partial CODE START ================================
+
+var grc_service_partial=document.getElementById("grc_service_partial");
+if(grc_service_partial){
+  fetch("../grc_service_partial.html")
+  .then((E)=>E.text())
+  .then(res=>{
+    grc_service_partial.innerHTML=res;
+  })
+}
+// ====================== grc_service_partial CODE END  ================================
+
+
 
 // ===================== HEADER CODE START ======================
 var footer=document.getElementById("footer");
@@ -129,4 +159,7 @@ function initNavbarTabHover() {
     }
   });
 // =================== SWIPER OF BANNER SLIDER CODE END  ======================
+
+
+
 
