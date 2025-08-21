@@ -560,3 +560,13 @@ swiper-slide img {
     height: max-content !important;
     top: 15% !important;
 }
+.footer-area div{
+    font-weight: 400 !important;
+
+    color: rgb(44, 44, 44) !important;
+}
+.footer-area a{
+    color: #0f0f0f !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+}
