@@ -420,7 +420,12 @@ transform: scale(1);
 border-radius: 20px;
 }
 
-
+.blur_div{
+    background-color: #d1d1d170;
+    padding: 10px 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(19px);
+}
 
 
 .div_of_card_serivce{
@@ -549,3 +554,9 @@ swiper-slide img {
 }
 
 /* SWIPER CSS END  */
+
+.sticky-element{
+    position: sticky !important;
+    height: max-content !important;
+    top: 15% !important;
+}
