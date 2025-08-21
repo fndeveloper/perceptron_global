@@ -104,6 +104,17 @@ if(grc_service_partial){
 }
 // ====================== grc_service_partial CODE END  ================================
 
+// ====================== ai_driver_web_service_partial CODE END  ================================
+var ai_driver_web_service_partial=document.getElementById("ai_driver_web_service_partial");
+if(ai_driver_web_service_partial){
+  fetch("../ai_driver_web_service_partial.html")
+  .then((E)=>E.text())
+  .then(res=>{
+    ai_driver_web_service_partial.innerHTML=res;
+  })
+}
+// ====================== ai_driver_web_service_partial CODE END  ================================
+
 
 
 // ===================== HEADER CODE START ======================
