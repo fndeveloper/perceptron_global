@@ -102,6 +102,7 @@ body.fade-in {
 }
 .slider_image_home div img {
     background-size: cover !important;
+    object-fit: cover !important;
     width: 100% !important;
     margin: 0% !important;
     padding: 0% !important; 
@@ -109,7 +110,8 @@ body.fade-in {
 
 @media (min-width:992px) {
     .slider_image_home .carousel-item .d-block{
-    height: 80vh !important;
+    max-height: 90vh !important;
+
 }
 }
 @media (max-width:992px) {
@@ -421,7 +423,7 @@ border-radius: 20px;
 }
 
 .blur_div{
-    background-color: #d1d1d170;
+    background-color: #0a0a0a42;
     padding: 10px 30px;
     border-radius: 10px;
     backdrop-filter: blur(19px);
