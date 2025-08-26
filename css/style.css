@@ -437,6 +437,9 @@ border-radius: 20px;
 transition: 0.9s ease-in-out !important;
 position: relative !important;
 }
+.left_side_div  p , .left_side_div  ul{
+    font-size: 14px !important;
+}
 
 .img_of_hover{
 transition: 0.9s ease-in-out !important;

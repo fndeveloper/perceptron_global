@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fasih Nasir | Thems </title>
+  <link rel="shortcut icon" href="https://fasih-nasir.netlify.app/img/images.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fasih Nasir | Front-End Developer & React.js Expert">
+  <meta name="twitter:description"
+    content="View the portfolio of Fasih Nasir, expert in React.js and modern web development. Specializing in scalable, responsive, and high-performance UI solutions.">
+  <meta name="twitter:image" content="https://fasih-nasir.netlify.app/img/images.png">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .theme-card {
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      margin: 12px;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .theme-card:hover {
+      transform: translateY(-5px);
+    }
+    .theme-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+<div class="container my-4">
+  <h3 class="text-center mb-4">All Themes Collection</h3>
+  <div id="themesContainer" class="row justify-content-center"></div>
+</div>
+
+<script>
+  // Full list of themes
+  const themes = [
+    { name: "Theme 1 - Revora", url: "https://preview.themeforest.net/item/revora-it-solutions-digital-agency-wordpress-theme/full_screen_preview/58904400" },
+    { name: "Theme 2 - Faro", url: "https://themes.hibootstrap.com/faro/home-five/" },
+    { name: "Theme 3 - Neotech", url: "https://preview.themeforest.net/item/neotech-technology-it-solutions-wordpress-theme/full_screen_preview/55209861" },
+    { name: "Theme 4 - Zotech", url: "https://preview.themeforest.net/item/zotech-it-solutions-technology-joomla-template/full_screen_preview/58464913" },
+    { name: "Theme 5 - Ainexa", url: "https://preview.themeforest.net/item/ainexa-ai-agency-wordpress-theme/full_screen_preview/57924497" },
+    { name: "Theme 6 - Floka", url: "https://preview.themeforest.net/item/floka-digital-agency-portfolio-wordpress-theme/full_screen_preview/59412096" },
+    { name: "Theme 7 - Arolax", url: "https://preview.themeforest.net/item/arolax-creative-digital-agency-theme/full_screen_preview/53547630" },
+    { name: "Theme 8 - Algenix", url: "https://preview.themeforest.net/item/algenix-it-solutions-digital-agency-wordpress-theme/full_screen_preview/58167656" },
+    { name: "Theme 9 - Digiflow", url: "https://preview.themeforest.net/item/digiflow-digital-agency-wordpress-theme/full_screen_preview/58931900" },
+    { name: "Theme 10 - Ruhe", url: "https://preview.themeforest.net/item/ruhe-digital-agency-wordpress-theme/full_screen_preview/59095256" },
+    { name: "Theme 11 - Zenfy", url: "https://preview.themeforest.net/item/zenfy-software-saas-digital-agency-wordpress-theme/full_screen_preview/51646017" },
+    { name: "Theme 12 - Softconic", url: "https://preview.themeforest.net/item/softconic-software-and-it-solutions-wordpress-theme/full_screen_preview/47224457" },
+    { name: "Theme 13 - Xevsoft", url: "https://preview.themeforest.net/item/xevsoft-digital-it-solutions-wordpress-theme/full_screen_preview/45236488" }
+  ];
+
+  const container = document.getElementById("themesContainer");
+
+  // Render cards
+  themes.forEach(theme => {
+    const card = document.createElement("div");
+    card.classList.add("col-12", "col-sm-6", "col-md-4", "col-lg-3");
+
+    card.innerHTML = `
+      <div class="card theme-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVNer1ZryNxWVXojlY9Hoyy1-4DVNAmn7lrg&s" alt="${theme.name}">
+        <div class="card-body text-center">
+          <h6 class="card-title">${theme.name}</h6>
+          <a href="${theme.url}" target="_blank" class="btn btn-sm bg-light shadow">Preview</a>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+</script>
+</body>
+</html>
